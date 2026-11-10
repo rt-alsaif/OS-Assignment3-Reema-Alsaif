@@ -134,15 +134,18 @@
 
 ### Entry 1 - [Date and Time]
 **What I did**:
-
+Set up my project and ran the original program.
 **Details**:
-
+- Forked the starter repository and added my student ID.
+- Ran the program before making any changes.
+- Saved the output in Output.txt file.
+- The program showed a NullPointerException in ReadyQueue.snapshot(), and the verification checks failed.
 **Challenges**:
-
+ I was confused about why the program stopped before completing the simulation.
 **Solution**:
-
+I checked the error message and found that the problem happened in ReadyQueue.snapshot(). I saved the output so I could compare it with the results after fixing the code.
 **Time spent**:
-
+0.5 hour
 ---
 
 ### Entry 2 - [Date and Time]
