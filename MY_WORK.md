@@ -135,30 +135,43 @@
 ### Entry 1 - [November 10, 2026, 4:30 PM]
 **What I did**:
 Set up my project and ran the original program.
+
 **Details**:
 - Forked the starter repository and added my student ID.
 - Ran the program before making any changes.
 - Saved the output in Output.txt file.
 - The program showed a NullPointerException in ReadyQueue.snapshot(), and the verification checks failed.
+
 **Challenges**:
  I was confused about why the program stopped before completing the simulation.
+
 **Solution**:
 I checked the error message and found that the problem happened in ReadyQueue.snapshot(). I saved the output so I could compare it with the results after fixing the code.
+
 **Time spent**:
 0.5 hour
 ---
 
-### Entry 2 - [Date and Time]
+### Entry 2 - [November 12, 2026, 7:30 pm]
 **What I did**:
+Worked on Feature 1.
 
 **Details**:
+- Added a lock to the ReadyQueue.
+- Used the lock in add, poll, processOf, and snapshot.
+- Used try and finally to release the lock.
+- Ran the program to check the changes.
+- Saved the new output in output.txt.
+- Made a new commit on GitHub.
 
 **Challenges**:
+I was not sure where to put the lock in each method.
 
 **Solution**:
+I worked on each method one by one and checked my code.
 
 **Time spent**:
-
+45 minutes
 ---
 
 ### Entry 3 - [Date and Time]
