@@ -1,0 +1,63 @@
+PS C:\Users\LENOVO\OneDrive\سطح المكتب\OS-Assignment3-Reema-Alsaif>  & 'C:\Users\LENOVO\.vscode\extensions\redhat.java-1.58.0-win32-x64\jre\25.0.4.1-win32-x86_64\bin\java.exe' '-XX:+ShowCodeDetailsInExceptionMessages' '-cp' 'C:\Users\LENOVO\AppData\Roaming\Code\User\workspaceStorage\74361710053577e8accea12953c5c60a\redhat.java\jdt_ws\OS-Assignment3-Reema-Alsaif_eebb6a9c\bin' 'SchedulerSimulationSync' 
+
+╔═══════════════════════════════════════════════════════════════════════════════════════╗
+║           CONCURRENT CPU SCHEDULER SIMULATION (ASSIGNMENT 3 - SYNCHRONIZATION)          ║
+╠═══════════════════════════════════════════════════════════════════════════════════════╣
+║  Processes:       13                                                                  ║
+║  Time Quantum:    4000ms (nominal, simulated 5x faster)                               ║
+║  CPUs:            2                                                                   ║
+║  Student ID:      445052085                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════════════════╝
+
+  ➕ P1 (Priority: 8) added to ready queue │ Remaining: 9402ms of 9402ms
+  ➕ P2 (Priority: 1) added to ready queue │ Remaining: 5684ms of 5684ms
+  ➕ P3 (Priority: 10) added to ready queue │ Remaining: 7299ms of 7299ms
+  ➕ P4 (Priority: 4) added to ready queue │ Remaining: 4980ms of 4980ms
+  ➕ P5 (Priority: 4) added to ready queue │ Remaining: 2207ms of 2207ms
+  ➕ P6 (Priority: 7) added to ready queue │ Remaining: 5021ms of 5021ms
+  ➕ P7 (Priority: 2) added to ready queue │ Remaining: 4302ms of 4302ms
+  ➕ P8 (Priority: 9) added to ready queue │ Remaining: 4117ms of 4117ms
+  ➕ P9 (Priority: 7) added to ready queue │ Remaining: 8328ms of 8328ms
+  ➕ P10 (Priority: 7) added to ready queue │ Remaining: 2519ms of 2519ms
+  ➕ P11 (Priority: 4) added to ready queue │ Remaining: 6862ms of 6862ms
+  ➕ P12 (Priority: 2) added to ready queue │ Remaining: 2946ms of 2946ms
+  ➕ P13 (Priority: 4) added to ready queue │ Remaining: 2853ms of 2853ms
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                  ▶  2 CPUs STARTING (CONCURRENT SCHEDULER)  ◀                    ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+Exception in thread "CPU-2" Exception in thread "CPU-1" java.lang.NullPointerException: Cannot read field "next" because "this.next" is null
+        at java.base/java.util.LinkedList$ListItr.next(Unknown Source)
+        at ReadyQueue.snapshot(SchedulerSimulationSync.java:151)
+        at CpuWorker.run(SchedulerSimulationSync.java:280)
+java.lang.NullPointerException: Cannot read field "next" because "this.next" is null
+        at java.base/java.util.LinkedList$ListItr.next(Unknown Source)
+        at ReadyQueue.snapshot(SchedulerSimulationSync.java:151)
+        at CpuWorker.run(SchedulerSimulationSync.java:280)
+
+═══ VERIFICATION (expected values are computed from YOUR seed) ═══
+  Context switches (quanta executed)     expected 24       observed 0        ✘ MISMATCH
+  Completed processes                    expected 13       observed 0        ✘ MISMATCH
+  Total service time (ms)                expected 66520    observed 0        ✘ MISMATCH
+  Busy-waiting polls (must be 0)         expected 0        observed 0        ✔
+  ✘ At least one check failed (see the ✘ lines above): a race condition or busy waiting is still present.
+
+═══ Process Summary Table (nominal ms) ═══
+Process   Priority  Burst       Waiting       Turnaround   
+──────────────────────────────────────────────────────────
+P1        8         9402        0             0            
+P2        1         5684        0             0            
+P3        10        7299        0             0            
+P4        4         4980        0             0            
+P5        4         2207        0             0            
+P6        7         5021        0             0            
+P7        2         4302        0             0            
+P8        9         4117        0             0            
+P9        7         8328        0             0            
+P10       7         2519        0             0            
+P11       4         6862        0             0            
+P12       2         2946        0             0            
+P13       4         2853        0             0            
+
+PS C:\Users\LENOVO\OneDrive\سطح المكتب\OS-Assignment3-Reema-Alsaif> 
