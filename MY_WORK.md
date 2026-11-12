@@ -152,7 +152,7 @@ I checked the error message and found that the problem happened in ReadyQueue.sn
 0.5 hour
 ---
 
-### Entry 2 - [November 12, 2026, 7:30 pm]
+### Entry 2 - [November 11, 2026, 7:30 pm]
 **What I did**:
 Worked on Feature 1.
 
@@ -174,7 +174,7 @@ I worked on each method one by one and checked my code.
 45 minutes
 ---
 
-### Entry 3 - [Date and Time]
+### Entry 3 - [November 12, 2026, 6:00 pm]
 **What I did**:
 
 **Details**:
@@ -189,15 +189,25 @@ I worked on each method one by one and checked my code.
 
 ### Entry 4 - [Date and Time]
 **What I did**:
+* Added a ReentrantLock named statsLock to the SharedStats class.
+* Protected all shared statistics update methods and getter methods using lock(), try, and finally with unlock().
 
 **Details**:
+* Protected incrementContextSwitch().
+* Protected incrementCompletedProcess().
+* Protected addServiceTime(int ms).
+* Protected all three statistics getter methods.
+* Used one shared lock to protect the related statistics consistently.
 
 **Challenges**:
+* Encountered an IllegalMonitorStateException because a getter attempted to unlock without first acquiring the lock.
+
 
 **Solution**:
+Added the missing statsLock.lock() before the try block in the affected getter.
 
 **Time spent**:
-
+0.5 hour
 ---
 
 ### Entry 5 - [Date and Time]
