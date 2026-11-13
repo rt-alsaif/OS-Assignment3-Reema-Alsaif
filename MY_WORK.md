@@ -176,19 +176,6 @@ I worked on each method one by one and checked my code.
 
 ### Entry 3 - [November 12, 2026, 6:00 pm]
 **What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 4 - [Date and Time]
-**What I did**:
 * Added a ReentrantLock named statsLock to the SharedStats class.
 * Protected all shared statistics update methods and getter methods using lock(), try, and finally with unlock().
 
@@ -200,14 +187,31 @@ I worked on each method one by one and checked my code.
 * Used one shared lock to protect the related statistics consistently.
 
 **Challenges**:
-* Encountered an IllegalMonitorStateException because a getter attempted to unlock without first acquiring the lock.
-
+Encountered an IllegalMonitorStateException because a getter attempted to unlock without first acquiring the lock.
 
 **Solution**:
 Added the missing statsLock.lock() before the try block in the affected getter.
 
 **Time spent**:
 0.5 hour
+
+---
+
+### Entry 4 - [November 12, 2026, 2:00 pm]
+**What I did**:
+Implemented Feature 3: Counting Semaphore to replace busy waiting in the CPU workers.
+
+**Details**:
+Added a counting Semaphore to the ReadyQueue. Used acquire() to make CPUs wait when the ready queue is empty, and release() whenever a process is added. Implemented a shutdown mechanism to wake up CPUs after all processes finish.
+
+**Challenges**:
+Ensuring that all CPU threads terminate correctly without remaining blocked after the last process completes.
+
+**Solution**:
+Added a mechanism to release semaphore permits for all CPUs when the completed process count reaches the total number of processes.
+
+**Time spent**:
+45 minutes
 ---
 
 ### Entry 5 - [Date and Time]
