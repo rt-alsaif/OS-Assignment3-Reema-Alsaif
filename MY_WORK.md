@@ -32,17 +32,17 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Reema Turki Alsaif] |
+| **Student ID** | [445052085] |
+| **University Email** | [445052085]@std.psau.edu.sa |
+| **GitHub Username** | [rt-alsaif] |
+| **Repository Link** | [https://github.com/rt-alsaif/OS-Assignment3-Reema-Alsaif.git] |
  
 ---
 
 ## 🎥 Video Link
 
-**Video Link**: [Paste your video link here]
+**Video Link**: [OS-Assignmen3.ReemaA.mp4]
 
 > ⚠️ **WARNING:** The video must be **publicly accessible** ("Anyone with the link can view") on **Google Drive**, **YouTube (Unlisted or Public)** or any other cloud file-sharing system. A private, restricted or broken link counts as a **missing video (-1 mark)**.
 >
@@ -197,7 +197,7 @@ Added the missing statsLock.lock() before the try block in the affected getter.
 
 ---
 
-### Entry 4 - [November 12, 2026, 2:00 pm]
+### Entry 4 - [November 13, 2026, 2:00 pm]
 **What I did**:
 Implemented Feature 3: Counting Semaphore to replace busy waiting in the CPU workers.
 
@@ -214,17 +214,20 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 45 minutes
 ---
 
-### Entry 5 - [Date and Time]
+### Entry 5 - [November 14, 2026, 11:20 am]
 **What I did**:
-
+ Final Review
 **Details**:
-
+* Answered the Reflection and Technical Questions in MY_WORK.md.
+* Ran the code again to verify successful execution.
+* Reviewed the final output and verification results.
+* Checked all implemented features and reviewed the project requirements before submission.
 **Challenges**:
-
+No Challenge
 **Solution**:
-
+-
 **Time spent**:
-
+1 hour
 ---
 
 ### Entry 6 - [Optional - Date and Time]
@@ -245,7 +248,7 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
 **Total time spent on assignment**: [X hours]
-
+3.5 hour
 **Most challenging part**:
 
 **Most interesting learning**:
@@ -270,7 +273,7 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+I learned how threads share data. Without locks, errors can happen. ReentrantLock protects shared data. It also stops two threads from changing the same data at the same time. Semaphore helps CPUs wait when the queue is empty. I also learned why synchronization is important.
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -278,7 +281,7 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+The hardest part was using Semaphore. I did not understand how CPUs should wait when the queue is empty. I also had a problem with stopping all CPUs at the end. I needed to wake up the waiting CPUs. After testing the code, I understood it better.
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -286,7 +289,7 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+I worked step by step. I read the code and checked the lecture slides. I tested the program after each change. When I got errors, I checked the code and fixed them. I also ran the program again to make sure everything worked.
 
 ## Question 4: Where can synchronization concepts be applied in real-world applications?
 
@@ -294,7 +297,7 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+Synchronization is used in many applications. Banks use it to protect money during transfers. Ticket systems use it to stop two people from booking the same seat. Printers use queues to manage print jobs. Databases also use locks to protect data. It helps systems work correctly.
 
 ### Optional: What would you like to learn more about?
 
@@ -328,17 +331,26 @@ Added a mechanism to release semaphore permits for all CPUs when the completed p
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+In my original run, the program showed a NullPointerException in ReadyQueue.snapshot(). A race condition happens when two CPUs change the same data at the same time. For example, CPU-1 and CPU-2 both read 12 and both write 13. One update is lost. This can also happen on real computers.
 
 Verification block of the **original starter**:
 ```
-[Paste the verification block (or the exception/watchdog message) of the starter here]
-```
+═══ VERIFICATION (expected values are computed from YOUR seed) ═══
+  Context switches (quanta executed)     expected 24       observed 0        ✘ MISMATCH
+  Completed processes                    expected 13       observed 0        ✘ MISMATCH
+  Total service time (ms)                expected 66520    observed 0        ✘ MISMATCH
+  Busy-waiting polls (must be 0)         expected 0        observed 0        ✔
+  ✘ At least one check failed 
 
 Verification block of **my final version**:
 ```
 [Paste the verification block of your final version here (all lines ✔)]
-```
+═══ VERIFICATION (expected values are computed from YOUR seed) ═══
+  Context switches (quanta executed)     expected 24       observed 24       ✔
+  Completed processes                    expected 13       observed 13       ✔
+  Total service time (ms)                expected 66520    observed 66520    ✔
+  Busy-waiting polls (must be 0)         expected 0        observed 0        ✔
+  ✔ All shared values are consistent.
 
 **Explanation of the timeline:**
 [Explain the lost update step by step.]
@@ -350,14 +362,18 @@ Verification block of **my final version**:
 > 💡 **TIP:** The three counters are independent: does updating `contextSwitchCount` need to block an update of `totalServiceTime`? Also think about what could go wrong (deadlock, or long waiting) if the queue lock and the statistics lock were the **same** lock and a thread held it while doing something slow.
 
 **Your Answer:** *(3-5 sentences)*
-
-[Write your answer here.]
-
+I used one lock for the ReadyQueue and another lock for the statistics. The statistics lock protects all three counters. This stops two threads from changing the same data at the same time. Using one lock is simple but may make threads wait longer. The default ReentrantLock does not guarantee fair waiting.
 | Critical section (variable / method) | Lock used | Why it needs protection |
 |---|---|---|
 | [e.g., `ReadyQueue.poll()`] | [lock name] | [reason] |
-| [...] | [...] | [...] |
-
+1. ReadyQueue.add() — Lock: lock — Protects adding processes to the shared queue.
+2. ReadyQueue.poll() — Lock: lock — Prevents two CPUs from taking the same process.
+3. ReadyQueue.processOf() — Lock: lock — Protects access to the process map.
+4. ReadyQueue.snapshot() — Lock: lock — Prevents other threads from changing the queue while it is being read.
+5. SharedStats.incrementContextSwitch() — Lock: statsLock — Protects contextSwitchCount from simultaneous updates.
+6. SharedStats.incrementCompletedProcess() — Lock: statsLock — Protects completedProcessCount from simultaneous updates.
+7. SharedStats.addServiceTime() — Lock: statsLock — Protects totalServiceTime from simultaneous updates.
+8. SharedStats getter methods — Lock: statsLock — Protects reading the shared counters.
 ## Question 3: Busy Waiting vs Semaphore
 
 **Question**: Describe the **busy waiting** of the starter and its cost (give the `Busy-waiting polls` number from your **starter** run). What does the **value of your semaphore** represent? What is its **initial value** and why? What is its value right after the `numProcesses` initial `add()` calls? Why does the last CPU call `release(totalCPUs)` at the end, and what would happen if it did not?
@@ -366,7 +382,9 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+In the starter code, CPUs checked the queue again and again. This is called busy waiting and it wastes CPU time. The original output showed 0 polls because the program crashed.
+
+My Semaphore starts at 0 because the queue is empty. After adding 13 processes its value becomes 13. The last CPU uses release(totalCPUs) to wake up all CPUs. Without it, a CPU may wait forever.
 
 ## Question 4: Classical Problems and Deadlock
 
@@ -377,25 +395,32 @@ Verification block of **my final version**:
 **Your Answer:** *(3-5 sentences)*
 
 **Classical problem and roles**:
-[Name the problem; who is the producer, who is the consumer?]
+Problem: Producer-Consumer.
+
+Producer: Process generator and CPUs when they add unfinished processes.
+
+Consumers: CPUs when they take processes from the queue.
 
 **Semaphores for a bounded queue (name and initial value)**:
-[Name the three semaphores and their initial values.]
+empty = K
+
+full = 0
+
+mutex = 1
 
 **Deadlock scenario and prevention**:
-[Describe the scenario and the necessary condition you would break.]
+Deadlock happens when a producer holds mutex and waits for an empty space. The consumer needs mutex to remove a process and create an empty space. To prevent this, wait for empty before taking mutex. This breaks the hold-and-wait condition.
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1. How to use locks to protect shared data.
+2. How Semaphore helps threads wait.
+3. How to prevent race conditions and deadlocks.
 
 **Concepts I need to study more:**
-1.
-2.
-
+1. Deadlock conditions.
+2. Semaphore and thread synchronization.
 ---
 
 # ✅ Final Checklist (complete before submitting)
