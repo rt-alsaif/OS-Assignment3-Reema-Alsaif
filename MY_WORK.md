@@ -250,11 +250,11 @@ No Challenge
 **Total time spent on assignment**: [X hours]
 3.5 hour
 **Most challenging part**:
-
+Using Semaphore and making sure all CPUs stop correctly at the end.
 **Most interesting learning**:
-
+I learned how locks protect shared data and how Semaphore makes CPUs wait when the queue is empty.
 **What I would do differently next time**:
-
+I learned how locks protect shared data and how Semaphore makes CPUs wait when the queue is empty.
 ---
 
 # Part B: Reflection (0.5 mark)
